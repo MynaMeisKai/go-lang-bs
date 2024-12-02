@@ -6,16 +6,16 @@ import "fmt"
 
 func main()	{
 
-	// a := "Sample Foright "
+	a := "Sample Foright "
 
-	// for i := 0 ; i< len(a) ;i++ {
-	// 	fmt.Println(string(a[i]))
-	// }
-	// for _,char := range a {
-	// 	fmt.Println(string(char))
-	// }
-	// loop1()
-	// loop2()
+	for i := 0 ; i< len(a) ;i++ {
+		fmt.Println(string(a[i]))
+	}
+	for _,char := range a {
+		fmt.Println(string(char))
+	}
+	loop1()
+	loop2()
 	loop3()
 	loop4()
 }
