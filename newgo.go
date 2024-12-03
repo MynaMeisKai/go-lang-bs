@@ -12,7 +12,7 @@ func main()	{
 		fmt.Println(Anum[i])
 	}
 
-	// Slice and Reverse
+	// Slice 
 	slic := Anum[:5]
 	fmt.Println(slic)
 
