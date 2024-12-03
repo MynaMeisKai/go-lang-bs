@@ -42,7 +42,6 @@ func main()	{
 
 	fmt.Println( "Superhero  =>>>  ",Superhero)
 
-	val,ok := Superhero["Bat Man"]
-	fmt.Println(val["City"],ok)
-
+	value,ok := Superhero["Bat Man"]
+	fmt.Println(value["City"],ok)
 }
