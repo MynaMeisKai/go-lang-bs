@@ -2,21 +2,13 @@ package main
 
 import "fmt"
 
-// User input 
+// Array
 
 func main()	{
-	
-		var a string
-		fmt.Print("Enter Name : ")
-		fmt.Scanln(&a) 
-		fmt.Println("Hello " + a)
+	Anum := [5]int{1,2,3,4,5}
+	// fmt.Println(Anum)
 
-		var b,c int 
-		fmt.Print("Enter b : ")
-		fmt.Scanln(&b)
-		fmt.Print("Enter c : ")
-		fmt.Scanln(&c)
-		fmt.Println(b+c)
-
-
+	for i:=0 ; i<len(Anum) ; i++ {
+		fmt.Println(Anum[i])
+	}
 }
