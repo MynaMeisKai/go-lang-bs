@@ -2,52 +2,21 @@ package main
 
 import "fmt"
 
-// for loop
+// User input 
 
 func main()	{
-
-	a := "Sample Foright "
-
-	for i := 0 ; i< len(a) ;i++ {
-		fmt.Println(string(a[i]))
-	}
-	for _,char := range a {
-		fmt.Println(string(char))
-	}
-	loop1()
-	loop2()
-	loop3()
-	loop4()
-}
-
-func loop1(){
-	for i:=1 ; i<=10 ; i ++{
-		fmt.Println(i)
-	}
 	
-}
-func loop2(){
-	i:=1
-	for i<=10{
-		fmt.Println(i)
-		i++
-	}
-	
-}
-func loop3(){
-	for i:=1 ; i<5 ; i++{
-		for j:=0 ; j<i ; j++{
-			fmt.Print("* ")
-		}
-		fmt.Println()
-	}
-}
+		var a string
+		fmt.Print("Enter Name : ")
+		fmt.Scanln(&a) 
+		fmt.Println("Hello " + a)
 
-func loop4(){
-	for i:=5 ; i>=0 ; i--{
-		for j:=0 ; j<i ; j++{
-			fmt.Print("* ")
-		}
-		fmt.Println()
-	}
+		var b,c int 
+		fmt.Print("Enter b : ")
+		fmt.Scanln(&b)
+		fmt.Print("Enter c : ")
+		fmt.Scanln(&c)
+		fmt.Println(b+c)
+
+
 }
