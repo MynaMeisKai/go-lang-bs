@@ -2,26 +2,47 @@ package main
 
 import "fmt"
 
-// Array
+// Map
 
 func main()	{
-	Anum := [5]int{2,4,6,8,10}
-	fmt.Println(Anum)
 
-	for i:=0 ; i<len(Anum) ; i++ {
-		fmt.Println(Anum[i])
+	var mp map[string]int = map[string]int {
+		"Maddy" : 14,
+		"Amy":13,
+		"Rain" : 18,
+	}
+	fmt.Println(mp)
+
+	val,x := mp["Rn"]
+
+	// // x return's if key is in map true / false
+	// // val is value of the key ,if the is no key/false it give's 0
+
+	fmt.Println(val,x)
+
+	delete(mp,"Maddy")
+	fmt.Println(mp)
+
+	ms := make(map[string]int)
+	ms["Sam"] = 34
+	fmt.Println(ms)
+
+	// map in map
+
+	Superhero:= map[string]map[string]string{
+		"Super Man" : {
+			"RealName" : "Clark Kent",
+			"City" : "Metropolis City",
+		},
+		"Bat Man" :  {
+			"RealName" : "Bruce Wayne",
+			"City" : "Gowtham City",
+		},
 	}
 
-	// Slice and Reverse
-	slic := Anum[:5]
-	fmt.Println(slic)
+	fmt.Println( "Superhero  =>>>  ",Superhero)
 
-	// Copy array 
-	newArray := make([]int,5,10)
-	copy(newArray,slic)
-	fmt.Println(newArray)
+	val,ok := Superhero["Bat Man"]
+	fmt.Println(val["City"],ok)
 
-	// Append
-	appArray := append(newArray,100,101,103)
-	fmt.Println(appArray)
 }
