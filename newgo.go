@@ -2,46 +2,38 @@ package main
 
 import "fmt"
 
-// Map
+func sam(){
+	fmt.Println("W-W-W")
+}
 
-func main()	{
+func add(a,b int) int{ // 1 st int is datatyp 2nd int is return value
+	return a+b
+}
 
-	var mp map[string]int = map[string]int {
-		"Maddy" : 14,
-		"Amy":13,
-		"Rain" : 18,
+func sum1(x,y int) (z1,z2 int){ // z1,z2 are labels
+	return x+y , x*y
+}
+
+func main(){
+
+	sam() // simple fun call
+	add1 := add       // passing Arguments in func
+	fmt.Println("Sum : ", add1(1,2))
+	
+	// multiple output func 
+	sums,pro:=sum1(7,2)
+	fmt.Println("Ans : ",sums , pro)
+
+	// Anonymous Function 
+	samp1 := func (){
+		fmt.Println("samp-1")
 	}
-	fmt.Println(mp)
+	samp1()
 
-	val,x := mp["Rn"]
+	samp2 := func(x int)int {
+		return x*-2
+	}(2)
+	fmt.Println(samp2)
 
-	// // x return's if key is in map true / false
-	// // val is value of the key ,if the is no key/false it give's 0
 
-	fmt.Println(val,x)
-
-	delete(mp,"Maddy")
-	fmt.Println(mp)
-
-	ms := make(map[string]int)
-	ms["Sam"] = 34
-	fmt.Println(ms)
-
-	// map in map
-
-	Superhero:= map[string]map[string]string{
-		"Super Man" : {
-			"RealName" : "Clark Kent",
-			"City" : "Metropolis City",
-		},
-		"Bat Man" :  {
-			"RealName" : "Bruce Wayne",
-			"City" : "Gowtham City",
-		},
-	}
-
-	fmt.Println( "Superhero  =>>>  ",Superhero)
-
-	value,ok := Superhero["Bat Man"]
-	fmt.Println(value["City"],ok)
 }
