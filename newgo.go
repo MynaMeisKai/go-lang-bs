@@ -2,43 +2,85 @@ package main
 
 import (
 	"fmt"
-	// "reflect"
 )
 
-// Pointer
+// Struct
 
-/*
- * - Astrick or Derefrenc
- & - GetPointer or Refrence
-*/
-
-
-func toChange(sam *string) {
-    *sam = "Bad One"
+type Symbol struct{
+    xVal int32
+    yVal int32
 }
 
-func main() {
+func toC(cVal *Symbol,opt int )  {
 
-    // x:= 7
-    // y:= &x
-    // fmt.Println(x,y)
-    // *y = 12
-    // fmt.Println(x)
+    var chg int32
+    fmt.Println("Enter your'e Number : ")
+    fmt.Scanln(&chg)
+
+    if opt == 1 {
+        cVal.xVal = chg 
+    } else if opt == 2 {
+        cVal.yVal = chg
+    }else{
+        fmt.Println("--- Canceled ---")
+    }
+}
+
+func main(){
+    var  xx int32 
+    var yy int32
+    var opt int
+    stor := make(map[string]map[string]int32)
+
+    fmt.Println("Enter any Num1 xx :  ") 
+    fmt.Scanln(&xx)
+    fmt.Println("Enter any Num2 yy :  ")  
+    fmt.Scanln(&yy)
+    stor["Before"] = map[string]int32{
+                "xx" : xx,
+                "yy" : yy,
+    }
+    s1 := &Symbol{xx,yy}
+    fmt.Printf("Num1 xx : %d \nNum2 yy : %d\n",xx,yy)
+
+    fmt.Println("Do you want to change Num's [Yes]- 1 [No] - 0 : ")
+    fmt.Scanln(&opt)
+
+    if opt == 1 {
+        fmt.Println("You choose Yes !! \nEnter option to change [Num1]- 1 [Num2] - 2 : ") 
+        fmt.Scanln(&opt)
+        if opt == 1 {
+            toC(s1,opt)
+        }else if  opt == 2 {
+            toC(s1,opt)
+        }else {
+            fmt.Println(" --- Canceled --- you opt non ")
+        }
+    }else{
+        fmt.Println(" --- Canceled --- you opt 0 or any")
+    }
     
-    // or_str := "Good One"
-    // fmt.Println(or_str)
-
-    // toChange(&or_str)
-    // fmt.Println(or_str)
- 
-    to_run := "Duty"
-    var pointer *string = &to_run
-    fmt.Println(*pointer) // Duty
-    fmt.Println(pointer) // O/p Address to to_run
-    fmt.Println(&pointer) // O/p address of pointer
+    stor["After"] = map[string]int32{
+        "xx" : s1.xVal,
+        "yy" : s1.yVal,
+        }
+        
+    fmt.Println("Before val : ",stor["Before"])
+    fmt.Println("After val : ",stor["After"])
 }
 
-// two way to find TypeOf var or obj
-    // a := 7444
-    // fmt.Printf("%T",a)
-    // fmt.Printf("%v \n",reflect.TypeOf(a))
+
+
+
+// type Symbol struct {
+
+//     x int32
+//     y float64 
+     
+// }
+
+// func main() {
+//     var s1 Symbol = Symbol{9,0.34}
+//     fmt.Println(s1.x)
+//     fmt.Println(s1.y)
+// }
