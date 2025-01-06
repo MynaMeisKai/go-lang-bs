@@ -2,49 +2,26 @@ package main
 
 import "fmt"
 
-// func to func
-
-func samp1(newFunc func(int)int){
-	fmt.Println(newFunc(9))
-	
-}
-//Defer
-
-func add(x,y int)(z1,z2 int){
-	defer fmt.Println("Good!!")
-	z1 = x+y
-	z2 = x* -y
-	fmt.Println("Before return")
-	return
-
-}
-
-// functoin closure :
-
-func dos() func()int{
-	count := 0
-	fmt.Println("Do's called !!")
-	return func() int {
-		val := count +1 
-		count = count+1
-		return val
-	}
-
-}
+// Immutable's int,float,string,bool,array
 
 func main(){
 
-	test := func (x int)int {
-		return x * -2
-	}
-	samp1(test) //func --> func
+    x := 10
+    y := x
+    fmt.Println(x,y)
+    y = 20
+    fmt.Println(x,y)
 
-	adds,prods := add(2,6)
-	fmt.Printf("Sum : %d \nProduct : %d ",adds,prods) //defer 
+    var xx[3]int = [3]int {3,4,5}
+    yy := xx
+    fmt.Println(xx)
+    yy[0] = 12
+    fmt.Println(xx,yy)
 
-	funs := dos()
-	for i:=0 ; i<=10 ; i++{
-		fmt.Println(funs())
-	}
+    a :="Str"
+    b := a
+    b = "samp"
+    fmt.Println(a,b)
 }
 
+ 
