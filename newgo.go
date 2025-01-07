@@ -4,83 +4,88 @@ import (
 	"fmt"
 )
 
-// Struct
+// method
 
-type Symbol struct{
-    xVal int32
-    yVal int32
+type Students struct{
+
+    Name string
+    Age int32
+    Grades []int32
+    
 }
 
-func toC(cVal *Symbol,opt int )  {
+func addStd(name *string,age *int32, grds *[]int32) (string,int32,[]int32) {
+        
+        var numGrades int
 
-    var chg int32
-    fmt.Println("Enter your'e Number : ")
-    fmt.Scanln(&chg)
+        fmt.Println("Enter Student Name : ")
+        fmt.Scanln(name)
 
-    if opt == 1 {
-        cVal.xVal = chg 
-    } else if opt == 2 {
-        cVal.yVal = chg
-    }else{
-        fmt.Println("--- Canceled ---")
-    }
+        fmt.Println("Enter Student Age : ")
+        fmt.Scanln(age)
+        
+        fmt.Println("No of Grades : ")
+        fmt.Scanln(&numGrades)
+
+        fmt.Println("Enter markes : ")
+
+        for i:=0;i< numGrades;i++ {
+
+            var mark int32
+
+            fmt.Scanln(&mark)
+            *grds = append(*grds , mark)
+
+        }
+
+        return *name,*age,*grds
 }
 
-func main(){
-    var  xx int32 
-    var yy int32
+func (s_val *Students) toChangeStudent() {
+    var cp_name string
+    
+    fmt.Println("Enter Name : ")
+    fmt.Scanln(&cp_name)
+
+    s_val.Name = cp_name
+    
+}
+
+func main()  {
+
     var opt int
-    stor := make(map[string]map[string]int32)
+    var name string
+    var age int32
+    var grds []int32
+    var edit string
 
-    fmt.Println("Enter any Num1 xx :  ") 
-    fmt.Scanln(&xx)
-    fmt.Println("Enter any Num2 yy :  ")  
-    fmt.Scanln(&yy)
-    stor["Before"] = map[string]int32{
-                "xx" : xx,
-                "yy" : yy,
-    }
-    s1 := &Symbol{xx,yy}
-    fmt.Printf("Num1 xx : %d \nNum2 yy : %d\n",xx,yy)
-
-    fmt.Println("Do you want to change Num's [Yes]- 1 [No] - 0 : ")
+    fmt.Println("\t WELCOME \n\t Do you want to enter student Details [Yes: 1, No: Any other key]")
     fmt.Scanln(&opt)
 
-    if opt == 1 {
-        fmt.Println("You choose Yes !! \nEnter option to change [Num1]- 1 [Num2] - 2 : ") 
-        fmt.Scanln(&opt)
-        if opt == 1 {
-            toC(s1,opt)
-        }else if  opt == 2 {
-            toC(s1,opt)
+    if opt ==1{
+
+        studentName, studentAge, studentGrades :=addStd(&name,&age,&grds)
+
+        student := Students{
+            Name: studentName,
+            Age: studentAge,
+            Grades: studentGrades,
+        }
+
+        fmt.Println("Before : ",student)
+
+        fmt.Println("Enter 'edit' to edit student info or any key to No :")
+        fmt.Scanln(&edit)
+
+        if edit == "edit" {
+            student.toChangeStudent()
+            fmt.Println("After : ",student)
         }else {
-            fmt.Println(" --- Canceled --- you opt non ")
+            fmt.Println("No edits made.")
         }
-    }else{
-        fmt.Println(" --- Canceled --- you opt 0 or any")
+        // fmt.Println(student)
+
+    }else {
+        fmt.Println("Exiting. ")
     }
-    
-    stor["After"] = map[string]int32{
-        "xx" : s1.xVal,
-        "yy" : s1.yVal,
-        }
-        
-    fmt.Println("Before val : ",stor["Before"])
-    fmt.Println("After val : ",stor["After"])
 }
-
-
-
-
-// type Symbol struct {
-
-//     x int32
-//     y float64 
-     
-// }
-
-// func main() {
-//     var s1 Symbol = Symbol{9,0.34}
-//     fmt.Println(s1.x)
-//     fmt.Println(s1.y)
-// }
